@@ -8,3 +8,17 @@ services:
     ports:
       - 1025:1025
       - 8025:8025
+
+  sftp:
+    container_name: sftp
+    image: atmoz/sftp:latest
+    command: foo:pass:1001
+    ports:
+      - 22:22
+    volumes:
+      - sftp_data:/home/foo/sftp
+      - ./sftp/init_sftp.sh:/etc/sftp.d/init.sh:ro
+
+volumes:
+  sftp_data:
+    driver: local
