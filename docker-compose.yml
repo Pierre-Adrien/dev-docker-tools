@@ -18,7 +18,18 @@ services:
     volumes:
       - sftp_data:/home/foo/sftp
       - ./sftp/init_sftp.sh:/etc/sftp.d/init.sh:ro
+  
+  sonarqube:
+    container_name: sonarqube
+    image: sonarqube:community
+    ports:
+      - 9000:9000
+      - 9092:9092
+    volumes:
+      - sonarqube_data:/opt/sonarqube/data
 
 volumes:
   sftp_data:
+    driver: local
+  sonarqube_data:
     driver: local

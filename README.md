@@ -25,3 +25,7 @@ Configuration :
 - Port : 22
 - Login : foo
 - Password : pass
+
+### Sonarqube
+
+A local instance of sonarqube accessible at localhost:9000
